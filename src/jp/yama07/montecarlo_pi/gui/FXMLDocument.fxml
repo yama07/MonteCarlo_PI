@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.yama07.montecarlo_pi.gui.FXMLDocumentController">
+   <right>
+      <LineChart fx:id="lcResult">
+        <xAxis>
+          <NumberAxis label="Num of Trials" side="BOTTOM" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" side="LEFT">
+               <padding>
+                  <Insets left="30.0" />
+               </padding></NumberAxis>
+        </yAxis>
+      </LineChart>
+   </right>
+   <center>
+      <Canvas fx:id="cPlot" height="479.0" width="482.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin></Canvas>
+   </center>
+   <top>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="352.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Group>
+               <children>
+                  <Label layoutY="5.0" text="Trials: " />
+                  <Spinner fx:id="sTrials" layoutX="49.0" prefHeight="26.0" prefWidth="200.0" />
+               </children>
+            </Group>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleStartButtonAction" prefHeight="26.0" prefWidth="220.0" text="Start" />
+            <Button mnemonicParsing="false" onAction="#handleResetButtonAction" prefWidth="100.0" text="Reset" />
+            <ProgressBar fx:id="pbCalcProgress" prefWidth="500.0" progress="0.0" />
+         </children>
+      </HBox>
+   </top>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <bottom>
+      <HBox spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefWidth="500.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Group>
+                     <children>
+                        <Label text="Trials: " />
+                        <Label fx:id="lNumOfTrials" layoutX="50.0" text="0" />
+                     </children>
+                  </Group>
+                  <Group GridPane.columnIndex="1">
+                     <children>
+                        <Label text="Inside: " />
+                        <Label fx:id="lNumOfInside" layoutX="63.0" text="0" />
+                     </children>
+                  </Group>
+                  <Group GridPane.columnIndex="2">
+                     <children>
+                        <Label text="Outside: " />
+                        <Label fx:id="lNumOfOutside" layoutX="63.0" text="0" />
+                     </children>
+                  </Group>
+               </children>
+            </GridPane>
+            <Group>
+               <children>
+                  <Label text="Estimated PI: " />
+                  <Label fx:id="lEstimatedPI" layoutX="90.0" text="0.0" />
+               </children>
+            </Group>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
